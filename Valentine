@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Yulia</title>
+<style>
+  body{margin:0;height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#ffe4ec,#fff5f9);font-family:'Segoe UI',Arial,sans-serif;overflow:hidden}
+  .card{background:white;padding:35px 45px;border-radius:24px;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.12);max-width:340px;opacity:0;transform:translateY(20px);transition:.6s}
+  .show{opacity:1;transform:translateY(0)}
+  h1{color:#e75480;margin-bottom:8px;font-size:22px}
+  h2{margin:0 0 15px 0;font-weight:normal;color:#444}
+  p{color:#666;font-size:15px;line-height:1.6;min-height:42px}
+  .heart{font-size:40px;animation:beat 1.4s infinite;display:inline-block;margin-bottom:12px}
+  button{margin-top:10px;padding:10px 18px;border:none;border-radius:18px;background:#e75480;color:white;font-size:14px;cursor:pointer}
+  button:hover{background:#d94370}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+</style>
+</head>
+<body>
+  <div id="start">
+    <button onclick="openCard()">Open</button>
+  </div>
+  <div class="card" id="card">
+    <div class="heart">💗</div>
+    <h1>Happy Valentine’s Day</h1>
+    <h2>yuliya 🙂</h2>
+    <p id="text"></p>
+    <button onclick="playMusic()">Play music</button>
+    <audio id="music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4a8e9f1a0f.mp3?filename=romantic-background-112191.mp3"></audio>
+    <div style="margin-top:18px;font-size:13px;color:#aaa">— from hanif</div>
+  </div>
+<script>
+const message="Just wanted to make you smile today. Hope your day feels warm and peaceful.";
+let i=0;
+function type(){if(i<message.length){document.getElementById('text').innerHTML+=message.charAt(i);i++;setTimeout(type,35)}}
+function openCard(){document.getElementById('start').style.display='none';const c=document.getElementById('card');c.classList.add('show');type()}
+function playMusic(){document.getElementById('music').play()}
+</script>
+</body>
+</html>
